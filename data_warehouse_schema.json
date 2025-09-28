@@ -1,0 +1,55 @@
+{
+  "dimensions": {
+    "dim_customer": {
+      "customer_sk": "INTEGER PRIMARY KEY",
+      "customer_id": "VARCHAR(50)",
+      "customer_name": "VARCHAR(100)",
+      "customer_segment": "VARCHAR(50)",
+      "age_group": "VARCHAR(20)",
+      "registration_date": "DATE",
+      "is_premium": "BOOLEAN"
+    },
+    "dim_product": {
+      "product_sk": "INTEGER PRIMARY KEY",
+      "product_id": "VARCHAR(50)",
+      "product_name": "VARCHAR(200)",
+      "category": "VARCHAR(100)",
+      "brand": "VARCHAR(100)",
+      "price_range": "VARCHAR(20)",
+      "is_premium": "BOOLEAN"
+    },
+    "dim_store": {
+      "store_sk": "INTEGER PRIMARY KEY",
+      "store_id": "VARCHAR(50)",
+      "store_name": "VARCHAR(100)",
+      "store_type": "VARCHAR(50)",
+      "city": "VARCHAR(100)",
+      "state": "VARCHAR(50)"
+    },
+    "dim_date": {
+      "date_sk": "INTEGER PRIMARY KEY",
+      "full_date": "DATE",
+      "year": "INTEGER",
+      "quarter": "INTEGER",
+      "month": "INTEGER",
+      "day_of_week": "VARCHAR(20)",
+      "is_weekend": "BOOLEAN"
+    }
+  },
+  "facts": {
+    "fact_sales": {
+      "sales_sk": "INTEGER PRIMARY KEY",
+      "customer_sk": "INTEGER",
+      "product_sk": "INTEGER",
+      "store_sk": "INTEGER",
+      "date_sk": "INTEGER",
+      "order_id": "VARCHAR(50)",
+      "quantity": "INTEGER",
+      "unit_price": "DECIMAL(10,2)",
+      "line_total": "DECIMAL(12,2)",
+      "discount_amount": "DECIMAL(10,2)",
+      "tax_amount": "DECIMAL(10,2)",
+      "net_total": "DECIMAL(12,2)"
+    }
+  }
+}

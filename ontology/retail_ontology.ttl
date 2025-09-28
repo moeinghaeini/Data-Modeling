@@ -1,0 +1,128 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix retail: <http://example.org/retail#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Retail Domain Ontology
+retail:RetailEntity a owl:Class .
+
+# Core Business Entities
+retail:Customer a owl:Class ;
+    rdfs:subClassOf retail:RetailEntity ;
+    rdfs:comment "A customer who purchases products" .
+
+retail:Product a owl:Class ;
+    rdfs:subClassOf retail:RetailEntity ;
+    rdfs:comment "A product sold in the retail store" .
+
+retail:Order a owl:Class ;
+    rdfs:subClassOf retail:RetailEntity ;
+    rdfs:comment "A customer order containing multiple products" .
+
+retail:Store a owl:Class ;
+    rdfs:subClassOf retail:RetailEntity ;
+    rdfs:comment "A physical or online store location" .
+
+retail:Category a owl:Class ;
+    rdfs:subClassOf retail:RetailEntity ;
+    rdfs:comment "Product category classification" .
+
+# Customer Properties
+retail:customerId a owl:DatatypeProperty ;
+    rdfs:domain retail:Customer ;
+    rdfs:range xsd:string .
+
+retail:customerName a owl:DatatypeProperty ;
+    rdfs:domain retail:Customer ;
+    rdfs:range xsd:string .
+
+retail:customerEmail a owl:DatatypeProperty ;
+    rdfs:domain retail:Customer ;
+    rdfs:range xsd:string .
+
+retail:customerAge a owl:DatatypeProperty ;
+    rdfs:domain retail:Customer ;
+    rdfs:range xsd:integer .
+
+retail:customerSegment a owl:DatatypeProperty ;
+    rdfs:domain retail:Customer ;
+    rdfs:range xsd:string .
+
+# Product Properties
+retail:productId a owl:DatatypeProperty ;
+    rdfs:domain retail:Product ;
+    rdfs:range xsd:string .
+
+retail:productName a owl:DatatypeProperty ;
+    rdfs:domain retail:Product ;
+    rdfs:range xsd:string .
+
+retail:productPrice a owl:DatatypeProperty ;
+    rdfs:domain retail:Product ;
+    rdfs:range xsd:decimal .
+
+retail:productCategory a owl:ObjectProperty ;
+    rdfs:domain retail:Product ;
+    rdfs:range retail:Category .
+
+# Order Properties
+retail:orderId a owl:DatatypeProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range xsd:string .
+
+retail:orderDate a owl:DatatypeProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range xsd:dateTime .
+
+retail:orderTotal a owl:DatatypeProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range xsd:decimal .
+
+retail:orderStatus a owl:DatatypeProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range xsd:string .
+
+# Relationships
+retail:hasCustomer a owl:ObjectProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range retail:Customer .
+
+retail:containsProduct a owl:ObjectProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range retail:Product .
+
+retail:soldAt a owl:ObjectProperty ;
+    rdfs:domain retail:Order ;
+    rdfs:range retail:Store .
+
+# Category Properties
+retail:categoryId a owl:DatatypeProperty ;
+    rdfs:domain retail:Category ;
+    rdfs:range xsd:string .
+
+retail:categoryName a owl:DatatypeProperty ;
+    rdfs:domain retail:Category ;
+    rdfs:range xsd:string .
+
+# Store Properties
+retail:storeId a owl:DatatypeProperty ;
+    rdfs:domain retail:Store ;
+    rdfs:range xsd:string .
+
+retail:storeName a owl:DatatypeProperty ;
+    rdfs:domain retail:Store ;
+    rdfs:range xsd:string .
+
+retail:storeLocation a owl:DatatypeProperty ;
+    rdfs:domain retail:Store ;
+    rdfs:range xsd:string .
+
+# Business Rules
+retail:HighValueCustomer a owl:Class ;
+    rdfs:subClassOf retail:Customer ;
+    rdfs:comment "Customer with total orders > $1000" .
+
+retail:PremiumProduct a owl:Class ;
+    rdfs:subClassOf retail:Product ;
+    rdfs:comment "Product with price > $100" .

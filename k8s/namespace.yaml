@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retail-analytics
+  labels:
+    name: retail-analytics
+    app: data-modeling

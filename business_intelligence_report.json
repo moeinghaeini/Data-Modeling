@@ -1,0 +1,58 @@
+{
+  "key_metrics": {
+    "total_revenue": 36218401.980000004,
+    "total_orders": 9928,
+    "total_customers": 1986,
+    "avg_order_value": 3648.106565269944
+  },
+  "revenue_by_segment": {
+    "Bronze": 13774529.13,
+    "Gold": 7692176.46,
+    "Platinum": 3937422.25,
+    "Silver": 10814274.14
+  },
+  "top_products": {
+    "BrandG Automotive Product 228": 360270.86,
+    "BrandA Electronics Product 912": 352492.64,
+    "BrandD Electronics Product 596": 347200.93,
+    "BrandI Electronics Product 376": 329031.92,
+    "BrandF Automotive Product 248": 318215.97,
+    "BrandD Automotive Product 776": 291290.83,
+    "BrandC Automotive Product 753": 277901.84,
+    "BrandB Automotive Product 356": 276682.7,
+    "BrandI Automotive Product 667": 275658.42,
+    "BrandD Automotive Product 994": 268878.73
+  },
+  "monthly_trends": {
+    "2022-01": 1466803.14,
+    "2022-02": 1184353.47,
+    "2022-03": 1477982.78,
+    "2022-04": 1430632.37,
+    "2022-05": 1616693.66,
+    "2022-06": 1374612.83,
+    "2022-07": 1564789.68,
+    "2022-08": 1637704.9,
+    "2022-09": 1613014.33,
+    "2022-10": 1782561.44,
+    "2022-11": 1524742.78,
+    "2022-12": 1495849.23,
+    "2023-01": 1553836.15,
+    "2023-02": 1300951.2,
+    "2023-03": 1590600.15,
+    "2023-04": 1435946.22,
+    "2023-05": 1482567.0,
+    "2023-06": 1524942.61,
+    "2023-07": 1452423.62,
+    "2023-08": 1564361.64,
+    "2023-09": 1231580.74,
+    "2023-10": 1558613.88,
+    "2023-11": 1456604.1,
+    "2023-12": 1858934.31,
+    "2024-01": 37299.75
+  },
+  "customer_insights": {
+    "high_value_customers": 1805,
+    "frequent_buyers": 1784,
+    "new_customers": 0
+  }
+}

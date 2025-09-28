@@ -1,0 +1,82 @@
+{
+  "namespace": "http://example.org/retail#",
+  "classes": {
+    "Customer": {
+      "properties": [
+        "customerId",
+        "customerName",
+        "email",
+        "age",
+        "customerSegment"
+      ],
+      "relationships": [
+        "hasOrder",
+        "prefersStore",
+        "belongsToSegment"
+      ]
+    },
+    "Product": {
+      "properties": [
+        "productId",
+        "productName",
+        "category",
+        "price",
+        "brand"
+      ],
+      "relationships": [
+        "belongsToCategory",
+        "hasBrand",
+        "purchasedIn"
+      ]
+    },
+    "Order": {
+      "properties": [
+        "orderId",
+        "orderDate",
+        "orderTotal",
+        "orderStatus"
+      ],
+      "relationships": [
+        "hasCustomer",
+        "containsProduct",
+        "placedAtStore"
+      ]
+    },
+    "Store": {
+      "properties": [
+        "storeId",
+        "storeName",
+        "location",
+        "storeType"
+      ],
+      "relationships": [
+        "sellsProduct",
+        "servesCustomer",
+        "locatedIn"
+      ]
+    }
+  },
+  "business_rules": [
+    {
+      "rule_id": "high_value_customer",
+      "condition": "Customer.totalSpent > 10000 AND Customer.orderFrequency > 0.5",
+      "consequence": "Customer.isHighValue = true"
+    },
+    {
+      "rule_id": "product_affinity",
+      "condition": "Customer.purchasesProduct.category = Customer.preferredCategory",
+      "consequence": "Customer.hasAffinityFor = Product.category"
+    },
+    {
+      "rule_id": "churn_prediction",
+      "condition": "Customer.lastOrder < Customer.averageOrderInterval * 3",
+      "consequence": "Customer.churnRisk = high"
+    }
+  ],
+  "inferred_facts": [
+    "Customer CUST_000001 isHighValue true",
+    "Customer CUST_000002 hasAffinityFor Electronics",
+    "Product PROD_000001 belongsToCategory Electronics",
+    "Store STORE_001 locatedIn New York"
+  ]
+}
